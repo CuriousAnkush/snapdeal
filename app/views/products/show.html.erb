@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Collection:</strong>
+  <%= @product.collection_id %>
+</p>
+
+<p>
+  <strong>Sku:</strong>
+  <%= @product.sku_id %>
+</p>
+
+<p>
+  <strong>Vars:</strong>
+  <%= @product.vars %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Expire date:</strong>
+  <%= @product.expire_date %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
