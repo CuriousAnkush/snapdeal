@@ -11,18 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309064607) do
+ActiveRecord::Schema.define(version: 20160309094149) do
+
+  create_table "prodcut_categories", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "product_images", force: :cascade do |t|
+    t.string   "img_path",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "product_id", limit: 4
+  end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.integer  "collection_id", limit: 4
-    t.string   "sku_id",        limit: 255
-    t.text     "vars",          limit: 65535
-    t.decimal  "price",                       precision: 10
-    t.text     "description",   limit: 65535
+    t.string   "name",                 limit: 255
+    t.integer  "collection_id",        limit: 4
+    t.string   "sku_id",               limit: 255
+    t.text     "vars",                 limit: 65535
+    t.decimal  "price",                              precision: 10
+    t.text     "description",          limit: 65535
     t.date     "expire_date"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.text     "product_category_ids", limit: 65535
+    t.text     "tag_ids",              limit: 65535
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
